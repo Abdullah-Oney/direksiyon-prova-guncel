@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101820" />
+  <meta name="description" content="Bagaj, kaput, kokpit ve direksiyon parkuru içeren mobil uyumlu ehliyet sınavı provası." />
+  <title>Direksiyon Provası — Sürüş sınavı simülasyonu</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <section id="start-screen" class="start-screen">
+    <div class="start-shell">
+      <div class="brand-lockup"><span class="brand-mark">DP</span><span>DİREKSİYON <b>PROVASI</b></span><span class="brand-pill">B SINIFI</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse-dot"></span> SINAVA HAZIR MISIN?</div>
+          <h1>Sınavı ezberleme.<br><em>Direksiyonda</em> öğren.</h1>
+          <p>Bagajdan gösterge paneline, paralel parktan yokuş kalkışına kadar sınav akışını interaktif bir sürüş deneyimiyle prova et.</p>
+          <div class="start-actions">
+            <button id="start-btn" class="primary-btn start-btn"><span><b>Sınav provası yap</b><small>Bagaj · Kaput · Kokpit + Parkur</small></span><span class="button-arrow">↗</span></button>
+            <button id="park-only-btn" class="secondary-start-btn"><span><b>Parkur provası yap</b><small>Doğrudan sürüş ve manevralar</small></span><span class="button-arrow">→</span></button>
+          </div>
+          <div class="hero-footnote"><span class="shield-mini">✓</span> Ücretsiz tarayıcı provası · Telefonda ve bilgisayarda çalışır</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="hero-road"><div class="road-dash"></div><div class="road-dash"></div><div class="road-dash"></div></div>
+          <svg class="hero-car" viewBox="0 0 360 190" role="img" aria-label="Temsili otomobil illüstrasyonu">
+            <defs><linearGradient id="carPaint" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f8fbff"/><stop offset="1" stop-color="#9ab5c9"/></linearGradient><linearGradient id="glass" x1="0" x2="1"><stop stop-color="#173143"/><stop offset="1" stop-color="#35566a"/></linearGradient></defs>
+            <ellipse cx="180" cy="151" rx="143" ry="24" fill="#000" opacity=".3"/>
+            <path d="M38 113 Q44 86 77 78 L110 44 Q121 31 142 31 L228 31 Q249 32 263 52 L292 81 Q316 90 323 111 L317 137 Q307 149 286 149 L65 149 Q41 147 37 132Z" fill="url(#carPaint)" stroke="#fff" stroke-opacity=".8" stroke-width="2"/>
+            <path d="M119 48 Q127 39 143 39 L222 39 Q240 40 251 57 L269 79 L91 79Z" fill="url(#glass)" stroke="#638196" stroke-width="2"/>
+            <path d="M178 40 L178 79" stroke="#8ba3b4" stroke-width="3"/>
+            <path d="M86 83 L275 83" stroke="#6d8797" stroke-width="3"/>
+            <path d="M44 112 L74 105 L85 117 L77 130 L43 128Z" fill="#d8f2ff"/><path d="M292 105 L317 113 L317 130 L290 130 L283 118Z" fill="#ff786e"/>
+            <rect x="87" y="130" width="184" height="8" rx="4" fill="#788e9e"/>
+            <g><rect x="69" y="115" width="45" height="51" rx="14" fill="#101820"/><rect x="75" y="121" width="33" height="39" rx="9" fill="#34434c"/><rect x="250" y="115" width="45" height="51" rx="14" fill="#101820"/><rect x="256" y="121" width="33" height="39" rx="9" fill="#34434c"/></g>
+            <path d="M111 45 L124 80 M249 56 L269 80" stroke="#dff5ff" stroke-width="3" opacity=".7"/>
+          </svg>
+          <div class="floating-tag tag-speed"><span class="tag-icon">↗</span><span><b>50</b><small>km/sa sınırı</small></span></div>
+          <div class="floating-tag tag-score"><span class="tag-check">✓</span><span><b>100 PUAN</b><small>Hedefin</small></span></div>
+          <div class="hero-caption">ÖĞREN · UYGULA · TAMAMLA</div>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feature"><span class="feature-number">01</span><div><b>Araç bilgisi</b><small>Bagaj · Kaput · Kokpit</small></div></div>
+        <div class="feature"><span class="feature-number">02</span><div><b>3B sürüş parkuru</b><small>Direksiyon · Vites · Pedallar</small></div></div>
+        <div class="feature"><span class="feature-number">03</span><div><b>Puanlı sınav</b><small>Hataları gör, yeniden dene</small></div></div>
+      </div>
+      <div class="start-disclaimer">Bu bir eğitim simülasyonudur; resmî MEB sınavının veya sürüş eğitiminin yerine geçmez.</div>
+    </div>
+  </section>
+
+  <main id="game-screen" class="game-screen" hidden>
+    <header class="app-header">
+      <div class="brand-lockup compact"><span class="brand-mark">DP</span><span>DİREKSİYON <b>PROVASI</b></span></div>
+      <div class="header-right"><span id="stage-label" class="stage-label">AŞAMA 1 / 10</span><div class="score-chip"><span class="score-star">✦</span><span><b id="score-value">0</b><small>/ 100 PUAN</small></span></div><button id="restart-btn" class="icon-btn" title="Baştan başlat" aria-label="Baştan başlat">↻</button></div>
+    </header>
+    <section id="stage-content" class="stage-content"></section>
+    <section id="drive-screen" class="drive-screen" hidden>
+      <div id="scene-wrap" class="scene-wrap">
+        <canvas id="game-canvas" aria-label="3B direksiyon parkuru"></canvas>
+        <div class="scene-vignette"></div>
+        <div class="drive-topline">
+          <div class="mission-card"><div class="mission-kicker"><span class="live-dot"></span><span id="mission-index">GÖREV 1 / 7</span></div><strong id="mission-title">Güvenli kalkış</strong><p id="mission-desc">Kemerini tak, vitesi 1'e al ve kontrollü hareket et.</p><div id="mission-hint" class="mission-hint">İpucu: Emniyet kemeri takılmadan araç hareket etmez.</div></div>
+          <div class="speed-card"><div class="speed-ring"><span id="speed-value">0</span><small>km/sa</small></div><div class="speed-meta"><span>VİTES</span><b id="gear-readout">N</b><span class="speed-limit"><i></i> 50</span></div><div class="drive-score"><b id="drive-score">0</b><small>PUAN</small></div></div>
+          <div class="drive-actions"><button id="control-layout-btn" class="drive-action-btn">DİREKSİYON SOLDA</button><button id="fullscreen-btn" class="drive-action-btn" aria-label="Tam ekranı aç/kapat" title="Tam ekran">⛶</button><button id="drive-restart-btn" class="drive-action-btn" aria-label="Parkuru yeniden başlat" title="Parkuru yeniden başlat">↻</button></div>
+        </div>
+        <div class="mission-progress-wrap"><div id="mission-progress" class="mission-progress"></div></div>
+        <div id="rotate-hint" class="rotate-hint">Daha rahat sürüş için telefonu yatay çevir ↻</div>
+        <div id="belt-warning" class="belt-warning" hidden><span>!</span><div><b>Kemerini tak!</b><small>Emniyet kemeri takılmadan kalkış yapamazsın.</small></div><button id="belt-warning-btn">KEMERİ TAK</button></div>
+        <div id="drive-toast" class="drive-toast" role="status" aria-live="polite"></div>
+        <div id="distance-pill" class="distance-pill" hidden>GERİ: <b>0.0 / 25 m</b></div>
+        <div id="completed-pop" class="completed-pop" hidden><span>✓</span><b>Görev tamamlandı</b><small>+10 puan</small></div>
+      </div>
+      <div class="drive-bottom">
+        <div id="task-strip" class="task-strip" aria-label="Parkur görevleri"></div>
+        <div class="drive-tool-row">
+          <button id="belt-btn" class="tool-btn belt-btn"><span class="tool-icon">♧</span><span><b>Kemer</b><small>Takılı değil</small></span></button>
+          <button id="hazard-btn" class="tool-btn hazard-btn" title="Dörtlü ikaz"><span class="tool-icon">△</span><span><b>Dörtlü</b></span></button>
+          <button id="headlamp-btn" class="tool-btn lamp-btn"><span class="tool-icon">☼</span><span><b>Far</b><small>Kısa far</small></span></button>
+        </div>
+        <div class="controls-row">
+          <div class="steering-control"><div class="control-label">DİREKSİYONU SÜRÜKLE</div><div class="steer-pad"><button id="steer-wheel" class="steer-wheel" aria-label="Direksiyonu tut ve döndür" type="button"><span class="wheel-spoke"></span><span class="wheel-spoke second"></span><span class="wheel-spoke third"></span><span class="wheel-hub"></span></button></div></div>
+          <div class="gear-control"><div class="control-label">VİTES</div><div class="gear-selector"><button data-gear="R">R</button><button data-gear="N" class="selected">N</button><button data-gear="1">1</button></div><small id="gear-help">Dururken vites seç</small></div>
+          <div class="pedal-control"><div class="control-label">PEDALLAR</div><div class="pedal-pair"><button id="brake-btn" class="pedal brake-pedal"><span class="pedal-bars"></span><b>FREN</b></button><button id="gas-btn" class="pedal gas-pedal"><span class="pedal-bars"></span><b>GAZ</b></button></div></div>
+        </div>
+        <div class="desktop-hints"><span>W / ↑ gaz</span><span>S / ↓ fren</span><span>1 / N / R vites</span><span>B kemer</span></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="modal-root"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

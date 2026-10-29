@@ -1,0 +1,4 @@
+Bu paket, eğitim amacıyla oluşturulmuş özgün bir web oyunu prototipidir.
+Dosyalar örnek olarak düzenlenebilir ve kişisel eğitim amaçlarıyla kullanılabilir.
+Üçüncü taraf araç/oyun markalarının görselleri, modelleri veya kodları bu projeye dahil edilmemiştir.
+Bu simülasyon resmî sürücü sınavı veya gerçek sürüş eğitiminin yerine geçmez.
